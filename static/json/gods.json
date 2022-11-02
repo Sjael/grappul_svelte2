@@ -1,0 +1,22 @@
+{
+    "agni":{
+        "role":"mid",
+        "class":"mage"
+    },
+    "chaac":{
+        "role":"mid",
+        "class":"warrior"
+    },
+    "he_bo":{
+        "role":"jungle",
+        "class":"mage"
+    },
+    "mercury":{
+        "role":"jungle",
+        "class":"assassin"
+    },
+    "thanatos":{
+        "role":"mid",
+        "class":"mage"
+    }
+}
