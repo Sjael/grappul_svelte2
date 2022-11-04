@@ -2,11 +2,12 @@
     import pathsByName from "./iconpaths"
     export const iconOptions = Object.keys(pathsByName)
     export const directions = ["n", "ne", "e", "se", "s", "sw", "w", "nw"]
-  </script>
+</script>
   
   <script>
     export let name = "arrow"
     export let direction = "n"
+    export let size = 25;
   
     $: paths = pathsByName[name] || []
     $: rotation = directions.indexOf(direction) * 45
@@ -14,9 +15,7 @@
   
   <svg
     class="c"
-    viewBox="0 0 25 25"
-    fill-rule="evenodd"
-    clip-rule="evenodd"
+    viewBox="0 0 {size} {size}"
     style="{`transform: rotate(${rotation}deg)`}">
     {#each paths as path}
       <path d="{path}"></path>
@@ -27,7 +26,7 @@
     .c {
       width: 1em;
       height: 1em;
-      fill: currentColor;
+      fill: #fff;
       transition: all 0.3s ease-out;
       overflow: visible;
     }
