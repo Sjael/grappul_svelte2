@@ -1,0 +1,42 @@
+{
+    "agni" : [
+        "s_sands",
+        "divine",
+        "spearofdeso",
+        "spearmagus",
+        "tahuti",
+        "myrdin"
+    ],
+    "chaac" : [
+        "s_warriors",
+        "jotunnsvigor",
+        "trans",
+        "souleater2",
+        "caduceus",
+        "titans"
+    ],
+    "he_bo" : [
+        "s_bumbas",
+        "bancrofts",
+        "spearmagus",
+        "pythags",
+        "typhons",
+        "obshard"
+    ],
+    "mercury" : [
+        "s_eye",
+        "rage",
+        "winddemon",
+        "deathbringer",
+        "asi",
+        "serrated"
+    ],
+    "thanatos" : [
+        "s_manikin",
+        "jotunns",
+        "hydras",
+        "arondight",
+        "titans",
+        "dom"
+    ]
+}

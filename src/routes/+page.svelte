@@ -7,7 +7,7 @@
     import { onMount } from 'svelte';
     import {slug} from '../utils.js';
 	import RoleFilters from '$lib/RoleFilters.svelte';
-	import { getDepOptimizationConfig } from 'vite';
+    import gods from '../json/gods.json'
 
     let class_filter = 'all';
     let role_filter = 'all';
@@ -18,18 +18,8 @@
     }
  
 
-     async function loading_info(){
-        let response = await fetch('/json/gods.json');
-		let result = await response.json();
-        let response2 = await fetch('/json/builds.json');
-		let result2 = await response2.json();
-        console.log({result2, result});
-        return {
-            "builds" : result2,
-            "gods": result
-        };
-    }
-    let info_promise = loading_info();
+
+     export let data
 
 
 </script>
@@ -56,23 +46,24 @@
             </div>
 
             <div id="build-picker">
-                {#await info_promise}
-                    <p>loading builds</p>
-                {:then base}
-                    {#each Object.entries(base["gods"]) as [god, info]}
-                        <div data-build="{god}" data-build-class={info["class"]} data-build-role={info["role"]} >
-                            <h2><img class="god-img" src="/gods/{god}.png" alt="{god}" />{god}</h2>
+                <!--{#each Object.entries(data) as [god, builds]}
+                    <h1>{god}</h1>
+                    <h1>{builds}</h1>
+                {/each}-->
+                {#each Object.entries(gods) as [god, god_info]}
+                    <div>
+                        <h2><img class="god-img" src="/gods/{god}.png" alt="{god}" />{god}</h2>
+                    {#each god_info["builds"] as buildinfo}
+                        {#if (role_filter === buildinfo["role"] || role_filter === 'all') && (class_filter === god_info["class"] || class_filter === 'all')}
                             <div class="itemrow">
-                                {#each base["builds"][god.toString()] as build}
-                                    <Item item={build} />
-                                {/each}
+                            {#each buildinfo["build"] as item}
+                                <Item {item} />
+                            {/each}
                             </div>
-                        </div>
+                        {/if}
                     {/each}
-                {:catch err}
-                    <h2>Error while loading the builds</h2>
-                {/await}   
-                
+                    </div>
+                {/each}
             </div>
 
             <div id="explain">
