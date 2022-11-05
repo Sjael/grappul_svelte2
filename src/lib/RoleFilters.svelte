@@ -35,7 +35,11 @@
     fill:#888;
 }
 
-#role-filter > *:hover, #role-filter > *.selected{
+#role-filter > *:hover{
+    fill:#aaa;
+    fill-opacity:0.8;
+}
+#role-filter > *.selected{
     fill:#ccc;
     fill-opacity:1;
 }

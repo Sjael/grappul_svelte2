@@ -7,7 +7,10 @@
     import { onMount } from 'svelte';
     import {slug} from '../utils.js';
 	import RoleFilters from '$lib/RoleFilters.svelte';
-    import gods from '../json/gods.json'
+    import gods from '../json/gods.json';
+	import Explain from '../lib/explain.svelte';
+
+
 
     let class_filter = 'all';
     let role_filter = 'all';
@@ -16,7 +19,17 @@
     let explain_post;
 
     $ : {
-        explain_post = god_filter + ' ' + role_filter;
+        if (god_filter !== 'all'){
+            if (gods[god_filter]["builds"].length > 1){
+                explain_post = god_filter + '_' + role_filter;
+            } else if (gods[god_filter]["builds"].length === 1){
+                explain_post = god_filter
+            } else{
+                explain_post = ""
+            }
+        }else{
+            explain_post = ""
+        }
         console.log(explain_post);
     }
 
@@ -89,14 +102,18 @@
             </div>
 
             <div id="explain">
-                {#if god_filter !== 'all'}
-                    {#if gods[god_filter]["builds"].length === 1}
+                {#if explain_post !== ""}
                         <div class="itemrow">
                             {#each gods[god_filter]["builds"][0]["build"] as item}
                             <Item {item} />
                             {/each}
                         </div>
-                    {/if}
+
+                    {#await import('../lib/explain/' + explain_post + '.svelte') then explain}
+                        <p>cool</p>
+                        <svelte:component this={explain.default}/>
+                    {/await}
+                   
                 {/if}
             </div>
 

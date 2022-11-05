@@ -7,7 +7,12 @@ import {mdsvex} from 'mdsvex';
 const config = {
 	// Consult https://github.com/sveltejs/svelte-preprocess
 	// for more information about preprocessors
-	preprocess: preprocess(),
+	preprocess: [
+		preprocess(),
+		mdsvex({
+		extensions: ['.md']
+		})
+	],
    
   	extensions: ['.svelte', '.md'],
 	kit: {

@@ -390,3 +390,7 @@ h1 > .jungley > .leaf{
     "💥 🧠"
 }
 
+.god img::selection{
+    
+    background: #f4743b33;
+}
