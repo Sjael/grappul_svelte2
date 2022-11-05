@@ -1,31 +1,20 @@
 <script>
     export const prerender = true;
     export const ssr = false;
-    import Item from '../lib/Item.svelte';
-    import Icon from '../lib/Icon.svelte';
-    import ClassFilters from '../lib/ClassFilters.svelte';
+    import Item from '../../lib/Item.svelte';
+    import Icon from '../../lib/Icon.svelte';
+    import ClassFilters from '../../lib/ClassFilters.svelte';
     import { onMount } from 'svelte';
-    import {slug} from '../utils.js';
+    import {slug} from '../../utils.js';
 	import RoleFilters from '$lib/RoleFilters.svelte';
-    import gods from '../json/gods.json'
+    import gods from '../../json/gods.json'
 
     let class_filter = 'all';
     let role_filter = 'all';
-    let god_filter = 'all';
 
-    let explain_post;
-
-    $ : {
-        explain_post = god_filter + ' ' + role_filter;
-        console.log(explain_post);
-    }
-
-    function set_god_filter(x){        
-        if (x !== god_filter){
-            god_filter = x;
-        } else{
-            god_filter = "all";
-        }
+    let filtered = [];
+    function filter_both(){
+                   
     }
  
     function contains_role(role, builds){
@@ -39,10 +28,6 @@
             return
         }
 
-    }
-
-    function showBuild() {
-        console.log("gamer");
     }
 
      export let data
@@ -76,84 +61,35 @@
                     <h1>{god}</h1>
                     <h1>{builds}</h1>
                 {/each}-->
-                <div class="god-grid">
                 {#each Object.entries(gods) as [god, god_info]}
                     {#if (class_filter === god_info["class"] || class_filter === 'all') && contains_role(role_filter, god_info["builds"])}
-                     
-                    <div class="god" on:click={() => set_god_filter(god)} class:selected="{god_filter === god}">
-                        <img src="/gods/{god}.png" alt="{god}" />
-                    </div>
+                        <div>
+                            <h2><img class="god-img" src="/gods/{god}.png" alt="{god}" />{god}</h2>
+                        {#each god_info["builds"] as buildinfo}
+                            {#if role_filter === buildinfo["role"] || role_filter === 'all'}
+                                <div class="itemrow">
+                                {#each buildinfo["build"] as item}
+                                    <Item {item} />
+                                {/each}
+                                </div>
+                            {/if}
+                        {/each}
+                        </div>
                     {/if}
                 {/each}
-                </div>
             </div>
 
             <div id="explain">
-                {#if god_filter !== 'all'}
-                    {#if gods[god_filter]["builds"].length === 1}
-                        <div class="itemrow">
-                            {#each gods[god_filter]["builds"][0]["build"] as item}
-                            <Item {item} />
-                            {/each}
-                        </div>
-                    {/if}
-                {/if}
+                
             </div>
 
         </div>
 
     </main>
 
+
+
 <style>
-.god-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(4rem, 1fr));
-  grid-auto-rows: 1fr;
-}
-
-.god-grid::before {
-  content: '';
-  width: 0;
-  padding-bottom: 100%;
-  grid-row: 1 / 1;
-  grid-column: 1 / 1;
-}
-
-.god:first-child {
-  grid-row: 1 / 1;
-  grid-column: 1 / 1;
-}
-
-/* Just to make the grid visible */
-
-.god {
-  background: rgba(0,0,0,0.1);
-  border: 1px transparent solid;
-}
-.god-grid img{
-    height: 100%;
-    width:100%;
-}
-
-.god{
-    transition: all 0.6s, transform 300ms ease;
-    cursor:pointer;
-    margin-bottom:20px;
-    padding:5px;
-    opacity:0.5;
-}
-
-
-.god:hover:not(.active-build), .god.selected{
-    transform:translateY(-2px)
-}
-
-
-
-.god:hover, .god.selected{
-    opacity:1;
-}
-
 
 /*  💯 💯 💯 💯
 /* ❤ 💯 Filter Section */
@@ -167,12 +103,68 @@
     height:clamp(40px, 15vh, 140px);
     align-items:center;
 }
+#role-filter > *{
+    transition:all .5s ease-in-out;
+    fill:#626788;
+}
+
+#role-filter #base{
+    fill-opacity:1;
+    fill:#888;
+}
+
+#role-filter > *:hover, #role-filter > *.selected{
+    fill:#ccc;
+    fill-opacity:1;
+}
+
+svg > #support:hover{
+    fill:var(--ocean-green);
+}
+
+#role-filter{
+    height:100%;
+}
+
+.role{
+    border-radius:20%;
+    border-color:transparent;
+}
+
+.role:active, .class:active{
+    transform:scale(0.90);
+}
+
+
+
+
+.class svg{
+    height:24px;
+    z-index:3;
+}
+
+
+.class:hover, .role:hover{
+    opacity:1;
+    border-color:transparent;
+}
+
+.class:hover::before, .class:active::before, .class.selected::before, .role:hover::before{
+    opacity:0.5;
+}
+
+.role.selected, .class.selected{
+    opacity:1.0;
+    border-color:transparent;
+}
 
 
 #explain{
     grid-area:🧠;
 }
-
+#explain > *:nth-child(2){
+    margin-top:20px;
+}
 
 #build-picker{
     grid-area:💥;
@@ -185,7 +177,44 @@
 /* 💥💥💥💥*/
 
 
+#build-picker > div{
+    transition: all 0.6s, transform 300ms ease;
+    cursor:pointer;
+    margin-bottom:20px;
+    padding:10px;
+    opacity:0.5;
+}
 
+#build-picker > div.hidden-build{
+    visibility:hidden;
+    opacity:0;
+    transition: all 1s;
+    transform: translateX(-200%);
+    height:0;
+    display:none;
+}
+
+#build-picker > .active-build{
+    opacity:1;
+}
+
+#build-picker > div:hover:not(.active-build){
+    transform:translateY(-2px)
+}
+
+#build-picker h2{
+    margin-top:0;
+    font-size:28px;
+}
+
+#build-picker:hover > div:hover{
+    opacity:1;
+}
+
+#build-picker h2>img{
+    vertical-align: middle;
+    margin-right:8px;
+}
 
 
 /* 🧠🧠🧠🧠
@@ -325,5 +354,3 @@ h2{
 }
 
 </style>
-
-
