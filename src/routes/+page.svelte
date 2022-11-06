@@ -103,14 +103,8 @@
 
             <div id="explain">
                 {#if explain_post !== ""}
-                        <div class="itemrow">
-                            {#each gods[god_filter]["builds"][0]["build"] as item}
-                            <Item {item} />
-                            {/each}
-                        </div>
 
                     {#await import('../lib/explain/' + explain_post + '.svelte') then explain}
-                        <p>cool</p>
                         <svelte:component this={explain.default}/>
                     {/await}
                    

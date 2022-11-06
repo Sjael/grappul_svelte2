@@ -1,8 +1,8 @@
 <script>
-    export let item;
+    export let ab;
     export let i = false;
 </script>
-<img src="/items/{item}.png" alt={item} class:inline="{i}">
+<img src="/abilities/{ab}.png" alt={ab} class:inline="{i}">
 
 <style>
     img{
@@ -16,6 +16,5 @@
         width:1.5em;
         vertical-align: middle;
     }
-
 
 </style>
