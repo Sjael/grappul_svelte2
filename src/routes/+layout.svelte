@@ -6,6 +6,6 @@
 <Header />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com">
-<main>
+<main data-sveltekit-prefetch>
 	<slot />
 </main>

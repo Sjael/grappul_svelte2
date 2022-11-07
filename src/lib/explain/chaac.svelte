@@ -6,23 +6,23 @@
     export const prices = Object.keys(itemprices);
 
 	let full_build = [
-		's_bumbasspear',
-		'bancroftsclaw',
-		'spearmagus',
-		'pythags',
-		'typhons',
-		'obshard'
+		'jotunnsvigor',
+		'trans',
+		'souleater',
+		'heartseeker',
+		'titans',
+		'crusher'
 	]
 
 	let timeline = [
-		['s_bumbas', 'tinytrink'],
-		['bancrofts'],
-		['spearmagus'],
-		['pythags'],
-		['typhons'],
-		['bancroftsclaw'],
-		['s_bumbasspear'],
-		['obshard']
+		['s_warriors', 'mace'],
+		['jotunns'],
+		['trans'],
+		['souleater'],
+		['heartseeker'],
+		['jotunnsvigor'],
+		['titans'],
+		['crusher']
 	]
 	let timeline_space = [0];
 	let build_total = 0;
@@ -46,11 +46,11 @@
 </script>
 
 <div class="explain-top" >
-	<div><img class="god-img" src="/gods/he_bo.png"/></div>
+	<div><img class="god-img" src="/gods/chaac.png"/></div>
 	<div class="explain-title" >
 		<div>
-			<h1>He Bo</h1>
-			<h4>Jungle</h4>
+			<h1>Chaac</h1>
+			<h4>Mid</h4>
 		</div>
 		<div>
 			<h4>Current as of</h4>

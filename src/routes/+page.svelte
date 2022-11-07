@@ -65,7 +65,8 @@
   
     <main>
      
-        <h1><span class="glow">
+        <h1>Quick 
+            <span class="glow">
             <span class="magic-star">
                 <Icon name="star" />
             </span>
@@ -76,7 +77,7 @@
                 <Icon name="star" />
             </span>
             <span class="glow-text">SMITE</span>
-        </span> Cheatsheet</h1>
+        </span> Guides</h1>
       
         <div class="grid_con">
             <div id="filter">
@@ -105,7 +106,9 @@
                 {#if explain_post !== ""}
 
                     {#await import('../lib/explain/' + explain_post + '.svelte') then explain}
-                        <svelte:component this={explain.default}/>
+                        <svelte:component this={explain.default} />
+                    {:catch error}
+                        <p>No guide yet, gimme a sec</p>
                     {/await}
                    
                 {/if}
