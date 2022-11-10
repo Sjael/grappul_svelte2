@@ -8,6 +8,7 @@
     import {slug} from '../../utils.js';
 	import RoleFilters from '$lib/RoleFilters.svelte';
     import gods from '../../json/gods.json'
+    import builds from '../../json/builds.json'
 
     let class_filter = 'all';
     let role_filter = 'all';
@@ -62,10 +63,10 @@
                     <h1>{builds}</h1>
                 {/each}-->
                 {#each Object.entries(gods) as [god, god_info]}
-                    {#if (class_filter === god_info["class"] || class_filter === 'all') && contains_role(role_filter, god_info["builds"])}
+                    {#if (class_filter === god_info["class"] || class_filter === 'all') && (god_info["roles"].includes(role_filter) || role_filter === "all")}
                         <div>
                             <h2><img class="god-img" src="/gods/{god}.png" alt="{god}" />{god}</h2>
-                        {#each god_info["builds"] as buildinfo}
+                        {#each builds[god] as buildinfo}
                             {#if role_filter === buildinfo["role"] || role_filter === 'all'}
                                 <div class="itemrow">
                                 {#each buildinfo["build"] as item}

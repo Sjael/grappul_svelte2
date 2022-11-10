@@ -126,7 +126,7 @@ header .corner{
 }
 
 #dark_mode{
-    padding:14px;
+    padding:10px;
     color:#fff;
     background:#222;
     border:none;
@@ -426,6 +426,10 @@ h1 > .jungley > .leaf{
     display:flex;
     gap:5rem;
     align-items:center;
+}
+
+#explain{
+    max-width:800px;
 }
 
 #explain > h2{

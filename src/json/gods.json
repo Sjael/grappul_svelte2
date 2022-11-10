@@ -1,83 +1,44 @@
 {
     "agni":{
         "class" : "mage",
-        "builds" :[
-            {
-                "role":"mid",
-                "build" : [
-                    "s_sands",
-                    "divine",
-                    "spearofdeso",
-                    "spearmagus",
-                    "tahuti",
-                    "myrdin"
-                ]
-            }
-        ] 
+        "roles" : ["mid"]
     },
+
     "chaac":{
         "class" : "warrior",
-        "builds" :[
-            {
-                "role":"mid",
-                "build" : [
-                    "s_warriors",
-                    "jotunnsvigor",
-                    "trans",
-                    "souleater2",
-                    "caduceus",
-                    "titans"
-                ]
-            }
-        ] 
+        "roles" : ["mid"]
     },
+
+    "cliodhna":{
+        "class" : "assassin",
+        "roles" : ["mid"]
+    },
+
+    "eset":{
+        "class" : "mage",
+        "roles" : ["support"]
+    },
+
     "he_bo":{
         "class" : "mage",
-        "builds" :[
-            {
-                "role":"jungle",
-                "build" : [
-                    "s_bumbas",
-                    "bancrofts",
-                    "spearmagus",
-                    "pythags",
-                    "typhons",
-                    "obshard"
-                ]
-            }
-        ] 
+        "roles" : ["jungle"]
     },
+
+    "poseidon":{
+        "class" : "mage",
+        "roles" : ["mid"]
+    },
+
     "mercury":{
         "class" : "assassin",
-        "builds" :[
-            {
-                "role":"jungle",
-                "build" : [
-                    "s_eye",
-                    "rage",
-                    "winddemon",
-                    "deathbringer",
-                    "asi",
-                    "serrated"
-                ]
-            }
-        ] 
+        "roles" : ["jungle"]
     },
+
     "thanatos":{
-        "class" : "assassin",
-        "builds" :[
-            {
-                "role":"jungle",
-                "build" : [
-                    "s_manikin",
-                    "jotunns",
-                    "hydras",
-                    "arondight",
-                    "titans",
-                    "dom"
-                ]
-            }
-        ] 
+        "class" : "warrior",
+        "roles" : ["jungle"]
     }
+
+
 
 }

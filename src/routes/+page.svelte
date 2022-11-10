@@ -4,11 +4,12 @@
     import Item from '../lib/Item.svelte';
     import Icon from '../lib/Icon.svelte';
     import ClassFilters from '../lib/ClassFilters.svelte';
+	import RoleFilters from '$lib/RoleFilters.svelte';
+    import Explain from '$lib/Explain.svelte'
     import { onMount } from 'svelte';
     import {slug} from '../utils.js';
-	import RoleFilters from '$lib/RoleFilters.svelte';
     import gods from '../json/gods.json';
-	import Explain from '../lib/explain.svelte';
+    import builds from '../json/builds.json';
 
 
 
@@ -17,21 +18,8 @@
     let god_filter = 'all';
 
     let explain_post;
+    let explain2;
 
-    $ : {
-        if (god_filter !== 'all'){
-            if (gods[god_filter]["builds"].length > 1){
-                explain_post = god_filter + '_' + role_filter;
-            } else if (gods[god_filter]["builds"].length === 1){
-                explain_post = god_filter
-            } else{
-                explain_post = ""
-            }
-        }else{
-            explain_post = ""
-        }
-        console.log(explain_post);
-    }
 
     function set_god_filter(x){        
         if (x !== god_filter){
@@ -40,25 +28,7 @@
             god_filter = "all";
         }
     }
- 
-    function contains_role(role, builds){
-        if (role === "all"){
-            return true
-        }
-        let g = builds.filter(e => e["role"] === role);
-        if (g.length > 0){
-            return true
-        }else{
-            return
-        }
 
-    }
-
-    function showBuild() {
-        console.log("gamer");
-    }
-
-     export let data
 
 
 </script>
@@ -66,7 +36,7 @@
     <main>
      
         <h1>Quick 
-            <span class="glow">
+            <!--<span class="glow">
             <span class="magic-star">
                 <Icon name="star" />
             </span>
@@ -75,9 +45,9 @@
             </span>
             <span class="magic-star">                
                 <Icon name="star" />
-            </span>
+            </span>-->
             <span class="glow-text">SMITE</span>
-        </span> Guides</h1>
+        <!--</span>--> Guides</h1>
       
         <div class="grid_con">
             <div id="filter">
@@ -92,7 +62,7 @@
                 {/each}-->
                 <div class="god-grid">
                 {#each Object.entries(gods) as [god, god_info]}
-                    {#if (class_filter === god_info["class"] || class_filter === 'all') && contains_role(role_filter, god_info["builds"])}
+                    {#if (class_filter === god_info["class"] || class_filter === 'all') && (god_info["roles"].includes(role_filter) || role_filter === "all")}
                      
                     <div class="god" on:click={() => set_god_filter(god)} class:selected="{god_filter === god}">
                         <img src="/gods/{god}.png" alt="{god}" />
@@ -103,14 +73,8 @@
             </div>
 
             <div id="explain">
-                {#if explain_post !== ""}
-
-                    {#await import('../lib/explain/' + explain_post + '.svelte') then explain}
-                        <svelte:component this={explain.default} />
-                    {:catch error}
-                        <p>No guide yet, gimme a sec</p>
-                    {/await}
-                   
+                {#if god_filter !== "all"}
+                    <Explain god={god_filter} role={role_filter} /> 
                 {/if}
             </div>
 

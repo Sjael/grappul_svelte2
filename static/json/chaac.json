@@ -1,0 +1,24 @@
+
+{
+    "role":"mid",
+    "god": "chaac",
+    "timeline" : [
+		["s_warriors", "mace"],
+		["jotunns"],
+		["trans"],
+		["souleater"],
+		["jotunnsvigor"],
+		["heartseeker"],
+		["titans"],
+		["crusher"]
+	],
+    "relics" : ["blink", "beads"],
+    "build" : [
+		"crusher",
+		"jotunnsvigor",
+		"trans",
+		"souleater",
+		"heartseeker",
+		"titans"
+    ]
+}

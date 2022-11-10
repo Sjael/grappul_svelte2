@@ -12,6 +12,8 @@ const fetch_gods = async () =>{
     gods.set(await response.json())
 }
 
+
+
 fetch_builds()
 fetch_gods()
 
