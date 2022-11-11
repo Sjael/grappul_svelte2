@@ -68,8 +68,8 @@
 			<h4>{info.role}</h4>
 		</div>
 		<div>
-			<h4>Current as of</h4>
-			<h2>9.10</h2>
+			<h4>As of 2022/11/10</h4>
+			<h2>Patch 9.10</h2>
 		</div>
 	</div>
 </div>
