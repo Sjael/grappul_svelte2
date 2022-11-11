@@ -4,7 +4,9 @@
 	import Icon from '$lib/Icon.svelte';
     import itemprices from "$lib/itemprices";
     import builds from '../json/builds.json';
-	import tips from '../json/tips.json'
+	import tips from '../json/tips.json';
+	import skillorders from '../json/skill_order.json';
+	import skills from '../json/skills.json';
     import {unslug} from '../utils.js';
 
 
@@ -23,6 +25,12 @@
 				}
 				if (tips[god]){
 					new_info.tips = tips[god]
+				}
+				if (skillorders[god]){
+					new_info.skillorder = skillorders[god]
+				}
+				if (skills[god]){
+					new_info.skills = skills[god]
 				}
 			}
 		}
@@ -93,6 +101,30 @@
 	{/each}
 </div>
 
+{#if info.skillorder && info.skills}
+	<h5>Skill Order</h5>
+	<div class="grid_hold">
+	{#each info.skills as skill, skillslot}
+	<div class="skillrow">
+		<div class="labelrow">
+			<Ab ab={skill} i/>
+			<p>{skill}</p>
+		</div>
+		<div class="rowpoints">
+			{#each Array(20) as _, i}
+				{#if skillslot+1 === info.skillorder[i]}
+				<div class="point level">
+					{i + 1}
+				</div>
+				{:else}				
+				<div class="point"></div>
+				{/if}
+			{/each}
+		</div>
+	</div>
+	{/each}
+</div>
+{/if}
 
 <h5>Timeline</h5>
 <div class="timeline">
@@ -137,5 +169,45 @@
 <style>
 	.explain-title > div:first-child > *{
 		text-transform: capitalize;
+	}
+
+	.grid_hold{
+		display:grid;
+	}
+	.skillrow{
+		display:flex;
+		margin-bottom:6px;
+		flex-direction: row;
+	}
+	.rowpoints, .labelrow{
+		display:flex;
+	}
+	.labelrow{
+		flex:1;
+		align-items:center;
+		background:#222226;
+		border-radius:3px;
+		font-size:0.8rem;
+	}
+	.labelrow p{
+		margin:0;
+		margin-left:6px;
+		opacity:0.9;
+	}
+	.point{
+		height:24px;
+		width:24px;
+		background:#333;
+		margin-left:6px;
+		display:flex;
+		align-items: center;
+		justify-content: center;
+		border-radius:3px;
+		font-weight:bold;
+		font-size:0.6rem;
+		cursor:default;
+	}
+	.point.level{
+		background:#444684;
 	}
 </style>

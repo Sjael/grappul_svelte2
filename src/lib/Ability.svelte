@@ -1,8 +1,14 @@
 <script>
     export let ab;
     export let i = false;
+    import {simplify} from '../utils.js';
+	import aliases from '../json/aliases.json';
 </script>
-<img src="/abilities/{ab}.png" alt={ab} class:inline="{i}">
+{#if aliases[ab.toLowerCase()]}
+<img src="/abilities/{aliases[ab.toLowerCase()]}.png" alt={ab} class:inline="{i}">
+{:else}
+<img src="/abilities/{simplify(ab)}.png" alt={ab} class:inline="{i}">
+{/if}
 
 <style>
     img{
