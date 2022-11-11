@@ -530,3 +530,7 @@ h1 > .jungley > .leaf{
 li > .inline{
     margin: auto 6px;
 }
+
+.labelrow img{
+    border-radius: 3px;
+}

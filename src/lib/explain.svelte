@@ -185,14 +185,14 @@
 	.labelrow{
 		flex:1;
 		align-items:center;
-		background:#222226;
+		background:#171926;
 		border-radius:3px;
-		font-size:0.8rem;
 	}
 	.labelrow p{
 		margin:0;
 		margin-left:6px;
 		opacity:0.9;
+		font-size:0.8rem;
 	}
 	.point{
 		height:24px;
