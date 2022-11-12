@@ -1,4 +1,6 @@
 {
     "agni":["Noxious Fumes", "Flame Wave", "Path of Flames", "Rain Fire"],
-    "he_bo": ["Water Cannon", "Atlas of the Yellow River", "Waterspout", "Crushing Wave"]
+    "he_bo": ["Water Cannon", "Atlas of the Yellow River", "Waterspout", "Crushing Wave"],
+    "poseidon" : ["Tidal Surge", "Trident", "Whirlpool", "Release the Kraken"],
+    "zhong_kui" : ["Expose Evil", "Exorcism", "Book of Demons", "Recall Demons"]
 }

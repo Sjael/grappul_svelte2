@@ -527,9 +527,6 @@ h1 > .jungley > .leaf{
     transform:translate(-50%,-50%);
 }
 
-li > .inline{
-    margin: auto 6px;
-}
 
 .labelrow img{
     border-radius: 3px;

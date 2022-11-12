@@ -30,5 +30,8 @@ export default{
             "Magical Penetration" : "10%",
             "Cooldown Reduction" : "10%",
         }
+    },
+    "spearmagus":{
+        "name" : "Spear of the Magus"
     }
 }

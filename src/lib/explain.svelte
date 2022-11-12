@@ -2,9 +2,10 @@
 	import {default as I} from '$lib/Item.svelte';
 	import {default as Ab} from '$lib/Ability.svelte';
 	import Icon from '$lib/Icon.svelte';
+	import Tips from '$lib/Tips.svelte';
+	import Pros from '$lib/Pros.svelte';
     import itemprices from "$lib/itemprices";
     import builds from '../json/builds.json';
-	import tips from '../json/tips.json';
 	import skillorders from '../json/skill_order.json';
 	import skills from '../json/skills.json';
     import {unslug} from '../utils.js';
@@ -23,9 +24,6 @@
 				if (build["role"] === role){
 					new_info = build
 				}
-				if (tips[god]){
-					new_info.tips = tips[god]
-				}
 				if (skillorders[god]){
 					new_info.skillorder = skillorders[god]
 				}
@@ -34,6 +32,7 @@
 				}
 			}
 		}
+		console.log(new_info)
 		return new_info
 	}
 
@@ -59,7 +58,6 @@
         }
     }
 </script>
-
 <div class="explain-top" >
 	<div><img class="god-img" src="/gods/{god}.png" alt={god}/></div>
 	<div class="explain-title" >
@@ -101,6 +99,23 @@
 	{/each}
 </div>
 
+<h5>Timeline</h5>
+<div class="timeline">
+	{#each info.timeline as buys, i}
+    <div style="left:{timeline_space[i] / (build_total + 2000) * 100}%" class="entry">
+        <div class="tick-h">
+            <div class="tick"></div>
+			{#each buys as item}
+			<I {item} i />
+			{/each}
+        </div>
+    </div>
+	{/each}
+	<p>{build_total}g</p>
+</div>
+
+<Pros {god} />
+
 {#if info.skillorder && info.skills}
 	<h5>Skill Order</h5>
 	<div class="grid_hold">
@@ -126,45 +141,9 @@
 </div>
 {/if}
 
-<h5>Timeline</h5>
-<div class="timeline">
-	{#each info.timeline as buys, i}
-    <div style="left:{timeline_space[i] / (build_total + 2000) * 100}%" class="entry">
-        <div class="tick-h">
-            <div class="tick"></div>
-			{#each buys as item}
-			<I {item} i />
-			{/each}
-        </div>
-    </div>
-	{/each}
-	<p>{build_total}g</p>
-</div>
-
-<h5>Pros</h5>
-<ol >
-    <li>Full Lifesteal - your best defense is a good offense on He Bo.</li>
-    <li>Spear of the Magus<I item="spearmagus" i /> gives us massive damage after Waterspout<Ab ab="waterspout" i/></li>
-    <li>Full % Penetration for damage on tanks</li> 
-    <li>Bumba's Spear<I item="s_bumbasspear" i /> gives great Fire Giant Secure</li> 
-</ol>
 
 
-<h2>Tips and Tricks</h2>
-<ul class="dia">
-	{#if info.tips}
-		{#each info.tips as tip}
-		<li>{tip}</li>
-		{/each}
-	{/if}
-    <li>Don't Waterspout 
-		<Ab ab="waterspout" i/> instantly into Ult
-		<Ab ab="crushingwave" i />, you will go under the enemy</li>
-    <li>Save River<Ab ab="river" i/>to cleanse slows or you're throwing</li>
-    <li>If you can, use Water Cannon<Ab ab="watercannon" i/>
-		before ulting<Ab ab="crushingwave" i/></li>
-    <li>Crushing Wave<Ab ab="crushingwave" i/> + Bancrofts<I item="bancrofts" i />gives 1/2 of your health back if low</li> 
-</ul>
+<Tips {god} />
 
 <style>
 	.explain-title > div:first-child > *{
@@ -191,8 +170,10 @@
 	.labelrow p{
 		margin:0;
 		margin-left:6px;
+		margin-right:12px;
 		opacity:0.9;
 		font-size:0.8rem;
+		white-space:nowrap;
 	}
 	.point{
 		height:24px;

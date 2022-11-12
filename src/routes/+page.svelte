@@ -5,7 +5,7 @@
     import Icon from '../lib/Icon.svelte';
     import ClassFilters from '../lib/ClassFilters.svelte';
 	import RoleFilters from '$lib/RoleFilters.svelte';
-    import Explain from '$lib/Explain.svelte'
+    import Explain from '$lib/explain.svelte'
     import { onMount } from 'svelte';
     import {slug} from '../utils.js';
     import gods from '../json/gods.json';
@@ -33,7 +33,6 @@
 
 </script>
   
-    <main>
      
         <h1>Quick 
             <!--<span class="glow">
@@ -80,7 +79,6 @@
 
         </div>
 
-    </main>
 
 <style>
 .god-grid {

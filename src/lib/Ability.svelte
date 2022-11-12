@@ -3,13 +3,15 @@
     export let i = false;
     import {simplify} from '../utils.js';
 	import aliases from '../json/aliases.json';
+	import Tooltip from '$lib/Tooltip.svelte';
 </script>
-{#if aliases[ab.toLowerCase()]}
-<img src="/abilities/{aliases[ab.toLowerCase()]}.png" alt={ab} class:inline="{i}">
-{:else}
-<img src="/abilities/{simplify(ab)}.png" alt={ab} class:inline="{i}">
-{/if}
-
+<Tooltip thing="">
+    {#if aliases[ab.toLowerCase()]}
+    <img src="/abilities/{aliases[ab.toLowerCase()]}.png" alt={ab} class:inline="{i}">
+    {:else}
+    <img src="/abilities/{simplify(ab)}.png" alt={ab} class:inline="{i}">
+    {/if}
+</Tooltip>
 <style>
     img{
         width:64px;
