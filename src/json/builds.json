@@ -97,7 +97,7 @@
             ["s_bumbas", "magic-focus"],
             ["spearmagus"],
             ["tahuti"],
-            ["tahutiperfected"],
+            ["tahuti_perfected"],
             ["spearofdeso"],
             ["obshard"],
             ["s_bumbasspear"],
@@ -107,7 +107,7 @@
         "build" : [
             "s_bumbasspear",
             "spearmagus",
-            "tahutiperfected",
+            "tahuti_perfected",
             "spearofdeso",
             "obshard",
             "soulreaver"

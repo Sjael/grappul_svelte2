@@ -10,6 +10,13 @@ export default{
     "s_lonos" : 1250,
     "s_bluestonebrooch": 1500,
 
+    "beads": 0,
+    "blink" : 0,
+    "shell" : 0,
+    "ankh" : 0,
+    "aegis" : 0,
+
+    "magic-focus" : 650,
     "divine": 2200,
     "tahuti" : 3000,
     "bancrofts" : 2500,
@@ -48,6 +55,7 @@ export default{
 
 
     "tahuti_calamitous" : 600,
+    "tahuti_perfected" : 600,
     "db_envenom" : 600,
     "tahutiperfected" : 600,
     "jotunnsvigor" : 600,

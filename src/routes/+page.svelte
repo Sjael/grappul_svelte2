@@ -12,13 +12,19 @@
     import builds from '../json/builds.json';
 
 
-
     let class_filter = 'all';
+    let role_highlight = [];
     let role_filter = 'all';
     let god_filter = 'all';
 
     let explain_post;
     let explain2;
+
+    $ : {
+        if (god_filter !== 'all'){
+            role_highlight = gods[god_filter].roles;
+        }
+    }
 
 
     function set_god_filter(x){        
@@ -51,7 +57,7 @@
         <div class="grid_con">
             <div id="filter">
                 <ClassFilters bind:class_filter />
-                <RoleFilters bind:role_filter />
+                <RoleFilters bind:role_filter bind:role_highlight />
             </div>
 
             <div id="build-picker">

@@ -6,8 +6,8 @@
 	import Tooltip from '$lib/Tooltip.svelte';
 </script>
 <Tooltip thing="">
-    {#if aliases[ab.toLowerCase()]}
-    <img src="/abilities/{aliases[ab.toLowerCase()]}.png" alt={ab} class:inline="{i}">
+    {#if aliases[simplify(ab)]}
+    <img src="/abilities/{aliases[simplify(ab)]}.png" alt={ab} class:inline="{i}">
     {:else}
     <img src="/abilities/{simplify(ab)}.png" alt={ab} class:inline="{i}">
     {/if}

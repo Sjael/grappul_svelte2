@@ -25,7 +25,7 @@ export function slug(text){
 }
 
 export function simplify(text){
-    text = text.replaceAll(' ', '');
+    text = text.replaceAll("'", '');
     let slug = text.toLowerCase();
     return slug;
 }

@@ -31,13 +31,34 @@
 {#if isHovered && items[thing]}
 	<div style="top: {y}px; left: {x}px;" class="tooltip">
         <h3>{items[thing].name}</h3>
-        {#if prices[thing]}
+        {#if prices[thing] && prices[thing] > 0}
             <p class="price">{prices[thing]}</p>
         {/if}
         {#if items[thing].details}
             {#each Object.entries(items[thing].details) as [attr, num]}
             <p>+{num} <span style="color:#888">{attr}</span></p>
             {/each}
+        {/if}
+        {#if items[thing].passive}
+            <h5 class="passiveh5"><strong>PASSIVE</strong></h5>
+            <p class="passive">{items[thing].passive}</p>
+        {/if}
+        {#if items[thing].glyph && items[thing].base}
+            
+            {#each Object.entries(items[items[thing].base].details) as [attr, num]}
+            <p>+{num} <span style="color:#888">{attr}</span></p>
+            {/each}
+            {#if items[items[thing].base].passive}
+                <h5 class="passiveh5"><strong>PASSIVE</strong></h5>
+                <p class="passive">{items[items[thing].base].passive}</p>
+            {/if}
+
+            <h5 class="passiveh5"><strong>GLYPH</strong></h5>
+            <p class="passive glyph">{items[thing].glyph}</p>
+        {/if}
+        {#if items[thing].active}
+            <h5 class="passiveh5"><strong>ACTIVE</strong></h5>
+            <p class="passive">{items[thing].active}</p>
         {/if}
     </div>
 {/if}
@@ -50,10 +71,12 @@
 		background: #222226;
 		padding: 14px;
 		position: absolute;
-        transform:translate(-10%, -20%);
+        transform:translate(10%, -20%);
+        max-width:300px;
 	}
     .tooltip >*{
         margin:0;
+        line-height: normal;
     }
     .tooltip > *:not(:last-child){
         margin-bottom:5px;
@@ -62,5 +85,18 @@
         font-size:0.6rem;
         font-weight:bold;
         color:var(--maximum-yellow-red);
+    }
+    .tooltip .passiveh5{
+        margin:12px 0px 5px !important;
+    }
+    h5:not(strong){
+        color:#fff;
+        letter-spacing:0;
+    }
+    .passive{
+        font-size:0.7rem;
+    }
+    .passive.glyph{
+        color: yellow;
     }
 </style>
