@@ -43,7 +43,8 @@
             "souleater2",
             "heartseeker",
             "titans"
-        ]
+        ],
+        "tags":["fav"]
     }],
 
     "cliodhna" : [{
@@ -111,7 +112,8 @@
             "spearofdeso",
             "obshard",
             "soulreaver"
-        ]
+        ],
+        "tags":["fav"]
     }],
     
     "poseidon" : [{

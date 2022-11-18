@@ -5,8 +5,8 @@
 </script>
   
   <script>
-    export let name = "arrow"
-    export let direction = "n"
+    export let name = "arrow";
+    export let direction = "n";
     export let size = 25;
   
     $: paths = pathsByName[name] || []

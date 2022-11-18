@@ -66,6 +66,12 @@
 			<h4>{info.role}</h4>
 		</div>
 		<div>
+			{#if info.tags}
+				<div class="chip">
+					<Icon name="arrow" />
+					<p>Favorite</p>
+				</div>
+			{/if}
 			<h4>As of 2022/11/10</h4>
 			<h2>Patch 9.10</h2>
 		</div>
@@ -86,7 +92,7 @@
 		<h5>Relics</h5>
 		<div class="itemrow">
 			<I item="{info.relics[0]}" s/>
-			<Icon name="arrow"/>
+			<Icon name="arrow" />
 			<I item="{info.relics[1]}" s/>
 		</div>
 	</div>
@@ -98,6 +104,7 @@
 		<I {item} s/>
 	{/each}
 </div>
+
 
 <h5>Timeline</h5>
 <div class="timeline">
@@ -146,6 +153,21 @@
 <Tips {god} />
 
 <style>
+	.chip{
+		background:#345688;
+		border-radius:20px;
+		display:inline-flex;
+		align-items:center;
+		justify-content:center;
+		padding:8px 12px;
+		gap:4px;
+	}
+
+	.chip *{
+		font-size:0.6em;
+		margin:0;
+	}
+
 	.explain-title > div:first-child > *{
 		text-transform: capitalize;
 	}

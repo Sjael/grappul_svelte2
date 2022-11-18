@@ -30,10 +30,13 @@
 
 {#if isHovered && items[thing]}
 	<div style="top: {y}px; left: {x}px;" class="tooltip">
-        <h3>{items[thing].name}</h3>
-        {#if prices[thing] && prices[thing] > 0}
-            <p class="price">{prices[thing]}</p>
-        {/if}
+        <div class="tt-head">
+            <h3>{items[thing].name}</h3>
+
+            {#if prices[thing] && prices[thing] > 0}
+                <p class="price">{prices[thing]}</p>
+            {/if}
+        </div>
         {#if items[thing].details}
             {#each Object.entries(items[thing].details) as [attr, num]}
             <p>+{num} <span style="color:#888">{attr}</span></p>
@@ -66,6 +69,14 @@
 <style>
     #root{
         display:contents;
+    }
+    .tt-head{
+        display:flex;
+        justify-content: space-between;
+        align-items:center;
+    }
+    .tt-head > *{
+        margin:0;
     }
 	.tooltip {
 		background: #222226;
