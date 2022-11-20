@@ -17,6 +17,8 @@ export default{
     "aegis" : 0,
 
     "magic-focus" : 650,
+    "mace" : 650,
+
     "divine": 2200,
     "tahuti" : 3000,
     "bancrofts" : 2500,

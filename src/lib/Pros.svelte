@@ -15,14 +15,13 @@
     <li>If the enemy team has any healing whatsoever, 
         Divine <I item="divine" i /> first is needed, and its a cheap easy spike</li>
 
-
     {:else if god ==="he_bo"}
     <li>Full Lifesteal - your best defense is a good offense on He Bo</li>
     <li>Spear of the Magus <I item="spearmagus" i /> gives us massive damage after Waterspout <Ab ab="waterspout" i /></li>
     <li>Full % Penetration for damage on tanks</li>
     <li>Bumba's Spear <I item="s_bumbasspear" i /> gives great Fire Giant Secure</li>
         
-        
+    {:else if god ==="cliodhna"}
         
     {/if}
 </ol>

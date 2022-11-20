@@ -56,7 +56,7 @@ body{
     --dark-jungle-green: #01110aff;
     --mandarin: #f4743bff;
 
-    --maximum-yellow-red: #ffbc42ff;
+    --maximum-yellow-red: #ffbc42;
     --ruby: #d81159ff;
     --charcoal: #273e47ff;
     --carolina-blue: #00a8e8ff;
@@ -429,7 +429,7 @@ h1 > .jungley > .leaf{
 }
 
 #explain{
-    max-width:800px;
+    
 }
 
 #explain > h2{
@@ -481,6 +481,7 @@ h1 > .jungley > .leaf{
 .timeline{
     margin:52px 0px 20px;
     width:100%;
+    max-width:600px;
     height:10px;
     background: var(--highlight-green);
     box-sizing:border-box;

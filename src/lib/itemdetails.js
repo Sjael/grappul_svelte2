@@ -9,15 +9,28 @@ export default{
         "glyph" : "glypy stuff",
         "passive" : "gamer"
     },
+    "beads" : {
+        "name" : "Purification Beads",
+        "active" : "Using this item removes Crowd Control Effects and makes you immune to new ones for 2s. Cooldown - 170s."
+    },
+
+
+    "blink" : {
+        "name" : "Blink Rune",
+        "active" : "Using this item will allow you to teleport up to 45 units away instantly. This item can not be used if you have taken or dealt damage in the last 3s. Cooldown - 140s. "
+    },
+
+    "mace" : {
+        "name" : "Mace",
+        "details": {
+            "Physical Power": 10
+        }
+    },
     "magic-focus" : {
         "name" : "Magic Focus",
         "details": {
             "Magical Power": 25
         }
-    },
-    "beads" : {
-        "name" : "Purification Beads",
-        "active" : "Using this item removes Crowd Control Effects and makes you immune to new ones for 2s. Cooldown - 170s."
     },
 
     "soulreaver" : {
@@ -78,6 +91,16 @@ export default{
         "passive" : "When your Ultimate ability has finished casting, reveal all enemy gods within 120 units for 8s. While moving towards revealed enemies gain 30% Movement Speed. When first striking a revealed target they take an additional 20 + 40% of your Physical Power. This can only occur once every 45 seconds. "
     },
 
+    "trans" : {
+        "name" : "Transcendence",
+        "details": {
+            "Physical Power": 45,
+            "Cooldown Reduction" : "10%",
+            "Mana" : 1050,
+            "MP5" : 10
+        },
+        "passive" : "3% of your Mana is converted to Physical Power."
+    },
     "heartseeker" : {
         "name" : "Heartseeker",
         "details": {
@@ -87,6 +110,31 @@ export default{
             "MP5" : 20
         },
         "passive" : "Your abilities deal an additional 3% of the targets maximum Health as Physical Damage. If you have over 200 Physical Power, your ability bonus damage scales up. This effect reaches a maximum of 6% Maximum Health damage at 350 Physical Power. Subsequent hits on the same target do 75% bonus damage for the next 3s. "
+    },
+    "souleater2" : {
+        "name" : "Soul Eater",
+        "details": {
+            "Physical Power": 40,
+            "Physical Lifesteal" : "15%",
+            "Physical Penetration" : "10%",
+            "Cooldown Reduction" : "10%"
+        },
+        "passive" : "Your abilities heal you for 20% of the damage dealt to targets. "
+    },
+
+    "jotunns" : {
+        "name" : "Jotunns's Wrath",
+        "details": {
+            "Physical Power": 45,
+            "Physical Penetration" : 10,
+            "Cooldown Reduction" : "20%",
+            "Mana" : 150
+        },
+    },
+    "jotunnsvigor" : {
+        "name" : "Jotunn's Vigor",
+        "base" : "jotunns",
+        "glyph" : "If you drop beneath 40% health, gain 10% Movement Speed and 30% Physical Ability Lifesteal for 5s. This effect may only occur once every 15s."
     },
 
     "titans" : {
