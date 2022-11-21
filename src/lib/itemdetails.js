@@ -111,6 +111,27 @@ export default{
         },
         "passive" : "Your abilities deal an additional 3% of the targets maximum Health as Physical Damage. If you have over 200 Physical Power, your ability bonus damage scales up. This effect reaches a maximum of 6% Maximum Health damage at 350 Physical Power. Subsequent hits on the same target do 75% bonus damage for the next 3s. "
     },
+    "dom" : {
+        "name" : "Dominance",
+        "details": {
+            "Physical Power": 55,
+            "Physical Penetration" : "10%",
+            "Mana" : 200,
+            "MP5" : 20
+        },
+        "passive" : "Your Basic Attacks benefit from an additional 15% Physical Penetration. "
+    },
+    "hydras" : {
+        "name" : "Hydra's Lament",
+        "details": {
+            "Physical Power": 40,
+            "Physical Penetration" : "10%",
+            "Cooldown Reduction" : "10%",
+            "MP5" : 10
+        },
+        "passive" : "For 8s after using an ability, your next Basic Attack will deal an additional 35% damage. Abilities that function like basic attacks do not benefit from this.",
+        "passive2" : "This item grants 2.5 MP5 per 10% of your missing Mana."
+    },
     "souleater2" : {
         "name" : "Soul Eater",
         "details": {
@@ -123,7 +144,7 @@ export default{
     },
 
     "jotunns" : {
-        "name" : "Jotunns's Wrath",
+        "name" : "Jotunn's Wrath",
         "details": {
             "Physical Power": 45,
             "Physical Penetration" : 10,
@@ -205,8 +226,26 @@ export default{
         },
         "passive" : "Your Basic Attacks deal +50 True Damage and your Abilities deal +35% damage against Jungle Camps, Structures, and Jungle Bosses. When any of these die you gain a 10% power buff for 30s and are healed for 10% of their Health, 10% of your Mana."
     },
+    "s_manikin" : {
+        "name" : "Manikin's Scepter",
+        "details": {
+            "Basic Attack Damage" : 10,
+            "Phyiscal Protection" : 30,
+        },
+        "passive" : "Enemies hit by your Basic Attacks are burned, taking 16 Physical Damage (+5% of your Physical and Magical Power) over 2s and have their Attack Speed reduced by 4.5%. Jungle Monsters restore 3% Health and 5% Mana when they die if they are burned. This effect can stack up to 3 times."
+    },
+    "s_hidden" : {
+        "name" : "Manikin's Hidden Blade",
+        "details": {
+            "Physical Power" : 60,
+            "Magical Power" : 90,
+            "Phyiscal Protection" : 30,
+            "Damage Reduction" : 5,
+        },
+        "passive" : "If you have not taken or dealt damage in the last 5s and hit an enemy god, Jungle Monster, or Jungle Boss, they immediately take 20% of their Maximum Health as Physical Damage and are slowed by 20% for 5s."
+    },
     "myrdin" : {
-        "name" : "Staff of Myrdin",
+        "name" : "Staff of Myrddin",
         "details": {
             "Magical Power" : 110,
             "Magical Penetration" : "10%",

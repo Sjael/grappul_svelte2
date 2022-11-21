@@ -194,6 +194,7 @@
 		margin-left:6px;
 		margin-right:12px;
 		opacity:0.9;
+		cursor:default;
 		font-size:0.8rem;
 		white-space:nowrap;
 	}

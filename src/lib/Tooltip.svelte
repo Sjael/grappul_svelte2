@@ -47,6 +47,10 @@
             <h4 class="passiveh5"><strong>PASSIVE</strong></h4>
             <p class="passive">{items[thing].passive}</p>
         {/if}
+        {#if items[thing].passive2}
+            <h4 class="passiveh5"><strong>PASSIVE</strong></h4>
+            <p class="passive">{items[thing].passive2}</p>
+        {/if}
         {#if items[thing].glyph && items[thing].base}
             
             {#each Object.entries(items[items[thing].base].details) as [attr, num]}

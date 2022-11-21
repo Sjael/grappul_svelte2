@@ -29,6 +29,7 @@
 #role-filter > *{
     transition:all .5s ease-in-out;
     fill:#626788;
+    cursor:pointer;
 }
 
 #role-filter #base{
@@ -54,11 +55,8 @@ svg > #support:hover{
 }
 
 
-.role:active, .class:active{
-    transform:scale(0.90);
-}
 
-#role-filter > .role.highlight:not(.active){
+#role-filter > .role.highlight:not(.selected){
     fill: #eca623;
 }
 </style>
